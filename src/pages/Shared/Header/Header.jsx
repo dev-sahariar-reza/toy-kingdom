@@ -64,9 +64,10 @@ const Header = () => {
             src={logo}
             alt="logo of Kid Kingdom"
             className="w-8 lg:w-20 h-8 lg:h-20"
+            loading="lazy"
           />
           <h3 className="text-primary font-extrabold text-sm lg:text-3xl">
-            Kid Kingdom
+            TOY KINGDOM
           </h3>
         </Link>
       </div>
