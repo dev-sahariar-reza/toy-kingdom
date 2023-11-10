@@ -19,3 +19,11 @@
 .text-secondary {
   @apply text-white;
 }
+
+.active {
+  @apply font-bold text-base lg:text-xl;
+}
+
+.not-active {
+  @apply font-bold text-base lg:text-xl text-primary;
+}
