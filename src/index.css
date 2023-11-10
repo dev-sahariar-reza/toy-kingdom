@@ -1,0 +1,21 @@
+/* Tailwind directives to CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Common CSS */
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.toy-container {
+  @apply container mx-auto my-14;
+}
+
+.text-primary {
+  @apply text-[#7743DB];
+}
+
+.text-secondary {
+  @apply text-white;
+}
