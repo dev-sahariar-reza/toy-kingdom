@@ -29,25 +29,25 @@ const Gallery = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://i.ibb.co/K9kFd5T/gallery-1.jpg" />
+          <img src="https://i.ibb.co/K9kFd5T/gallery-1.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/FBL6vX8/gallery-2.jpg" />
+          <img src="https://i.ibb.co/FBL6vX8/gallery-2.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/TgNQqVd/gallery-3.jpg" />
+          <img src="https://i.ibb.co/TgNQqVd/gallery-3.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/ckGvMbX/gallery-4.jpg" />
+          <img src="https://i.ibb.co/ckGvMbX/gallery-4.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/SXdgQ88/gallery-5.jpg" />
+          <img src="https://i.ibb.co/SXdgQ88/gallery-5.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/RTZ2FrR/gallery-6.jpg" />
+          <img src="https://i.ibb.co/RTZ2FrR/gallery-6.jpg" loading="lazy" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://i.ibb.co/zmHw67b/gallery-7.jpg" />
+          <img src="https://i.ibb.co/zmHw67b/gallery-7.jpg" loading="lazy" />
         </SwiperSlide>
       </Swiper>
     </section>
