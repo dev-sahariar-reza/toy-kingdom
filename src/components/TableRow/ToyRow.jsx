@@ -33,7 +33,7 @@ const ToyRow = ({ toy }) => {
       </th>
       <td>
         <div className="mask mask-squircle w-20 h-20">
-          <img src={image} alt="Toy Picture" />
+          <img src={image} alt="Toy Picture" loading="lazy" />
         </div>
       </td>
       <td className="font-bold text-base text-primary">{toy_name}</td>
