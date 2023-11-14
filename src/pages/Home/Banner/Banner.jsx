@@ -14,7 +14,7 @@ const Banner = () => {
           From classic treasures to cutting-edge delights, Toy Kingdom is every
           child's and collector's paradise.
         </p>
-        <button className="btn btn-primary font-bold">
+        <button className="toy-button">
           Learn More <FaArrowRightLong />
         </button>
       </div>

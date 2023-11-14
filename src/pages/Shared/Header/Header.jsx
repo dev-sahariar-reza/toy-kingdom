@@ -76,7 +76,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <Link to="/login">
-          <button className="btn btn-primary">Login</button>
+          <button className="toy-button">Login</button>
         </Link>
       </div>
     </div>

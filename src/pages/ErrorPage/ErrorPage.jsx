@@ -16,7 +16,7 @@ const ErrorPage = () => {
           {error?.message}
         </h3>
         <Link to="/">
-          <button className="btn btn-primary font-bold">
+          <button className="toy-button">
             Return to home <FaArrowRight />
           </button>
         </Link>

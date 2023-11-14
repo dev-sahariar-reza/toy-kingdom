@@ -78,14 +78,24 @@ const Login = () => {
               </label>
             </div>
 
-            <button className="btn btn-primary font-bold mb-5">Login</button>
+            <button className="toy-button mb-5">Login</button>
           </form>
 
-          <Link to="/register">
-            <button className="btn btn-active btn-link font-bold">
-              Create an account.
-            </button>
-          </Link>
+          <div className="flex flex-col w-full border-opacity-50">
+            <div className="grid h-20 card rounded-box place-items-center">
+              <Link to="/register">
+                <button className="btn btn-active btn-link font-bold">
+                  Create an account.
+                </button>
+              </Link>
+            </div>
+
+            <div className="divider">OR</div>
+
+            <div className="grid h-20 card rounded-box place-items-center">
+              <button className="toy-button">Login with Google</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
