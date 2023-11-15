@@ -18,6 +18,15 @@ const Header = () => {
         </NavLink>
       </li>
 
+      <li className="mr-5">
+        <NavLink
+          to="/allToys"
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
+        >
+          All Toys
+        </NavLink>
+      </li>
+
       {user ? (
         <li className="mr-5">
           <NavLink

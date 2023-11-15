@@ -22,8 +22,9 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-
     // console.log(name, photo, email, password);
+
+    setError("");
 
     createUser(email, password)
       .then((result) => {
@@ -35,6 +36,8 @@ const Register = () => {
           text: "Your registration is successful!",
           icon: "success",
         });
+
+        // clear form data
         form.reset();
       })
       .catch((error) => {
@@ -46,6 +49,8 @@ const Register = () => {
 
   // registration with google
   const handleRegistrationWithGoogle = () => {
+    setError("");
+
     logInWithGoogle()
       .then((result) => {
         const createdUser = result.user;
@@ -167,6 +172,10 @@ const Register = () => {
 
             <button className="toy-button mb-5">Register</button>
           </form>
+
+          <p className="text-red-500 text-center text-base font-bold">
+            {error}
+          </p>
 
           <div className="flex flex-col w-full border-opacity-50">
             <div className="grid h-20 card rounded-box place-items-center">

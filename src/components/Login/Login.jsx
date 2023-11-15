@@ -1,9 +1,42 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import loginImage from "../../assets/images/login&register/login.jpg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [control, setControl] = useState(false);
+  const [error, setError] = useState("");
+
+  const { logInWithEmail, logInWithGoogle } = useContext(AuthContext);
+
+  const handleLoginWithEmail = (event) => {
+    // prevent form default
+    event.preventDefault();
+
+    // get data from client
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setError("");
+
+    logInWithEmail(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        Swal.fire("Well Done", "Login Successful!", "success");
+        // clear form data
+        form.reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  const handleLoginWithGoogle = () => {};
+
   return (
     <section className="toy-container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-center items-center">
@@ -21,7 +54,7 @@ const Login = () => {
             Login Page
           </h1>
 
-          <form>
+          <form onSubmit={handleLoginWithEmail}>
             <div className="form-control w-full mb-5">
               <label className="label">
                 <span className="label-text font-bold text-primary">
@@ -81,6 +114,10 @@ const Login = () => {
             <button className="toy-button mb-5">Login</button>
           </form>
 
+          <p className="text-red-500 text-center text-base font-bold">
+            {error}
+          </p>
+
           <div className="flex flex-col w-full border-opacity-50">
             <div className="grid h-20 card rounded-box place-items-center">
               <Link to="/register">
@@ -93,7 +130,9 @@ const Login = () => {
             <div className="divider">OR</div>
 
             <div className="grid h-20 card rounded-box place-items-center">
-              <button className="toy-button">Login with Google</button>
+              <button className="toy-button" onClick={handleLoginWithGoogle}>
+                Login with Google
+              </button>
             </div>
           </div>
         </div>
