@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo/logo.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const navLink = (
     <>
       <li className="mr-5">
@@ -12,14 +16,33 @@ const Header = () => {
           Home
         </NavLink>
       </li>
-      <li className="mr-5">
-        <NavLink
-          to="/allToys"
-          className={({ isActive }) => (isActive ? "active" : "not-active")}
-        >
-          All Toys
-        </NavLink>
-      </li>
+
+      {user ? (
+        <li className="mr-5">
+          <NavLink
+            to="/myToys"
+            className={({ isActive }) => (isActive ? "active" : "not-active")}
+          >
+            My Toys
+          </NavLink>
+        </li>
+      ) : (
+        <></>
+      )}
+
+      {user ? (
+        <li className="mr-5">
+          <NavLink
+            to="/addToy"
+            className={({ isActive }) => (isActive ? "active" : "not-active")}
+          >
+            Add A Toy
+          </NavLink>
+        </li>
+      ) : (
+        <></>
+      )}
+
       <li className="mr-5">
         <NavLink
           to="/blogs"
@@ -75,9 +98,26 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="toy-button">Login</button>
-        </Link>
+        {user ? (
+          <>
+            <div className="avatar">
+              <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img
+                  src={user?.photoURL}
+                  alt="profile picture of user"
+                  loading="lazy"
+                  className="relative"
+                />
+              </div>
+            </div>
+
+            <button className="toy-button ml-5">Logout</button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="toy-button">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );
