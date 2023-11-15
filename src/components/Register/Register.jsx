@@ -8,7 +8,8 @@ const Register = () => {
   const [control, setControl] = useState(false);
   const [error, setError] = useState("");
 
-  const { createUser, logInWithGoogle } = useContext(AuthContext);
+  const { createUser, logInWithGoogle, updateUserProfile } =
+    useContext(AuthContext);
 
   // registration with email & password
   const handleRegistration = (event) => {
@@ -27,6 +28,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
+        updateUserProfile(name, photo);
         console.log(createdUser);
         Swal.fire({
           title: "Congratulations!",
@@ -60,6 +62,7 @@ const Register = () => {
         setError(errorMessage);
       });
   };
+
   return (
     <section className="toy-container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-center items-center">
