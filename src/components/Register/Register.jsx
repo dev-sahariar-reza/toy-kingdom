@@ -1,9 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import loginImage from "../../assets/images/login&register/login.jpg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [control, setControl] = useState(false);
+  const [error, setError] = useState("");
+
+  const { createUser } = useContext(AuthContext);
+
+  // registration with email & password
+  const handleRegistration = (event) => {
+    // prevent form loading
+    event.preventDefault();
+
+    // get data from client
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // console.log(name, photo, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Your registration is successful!",
+          icon: "success",
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
+      });
+  };
   return (
     <section className="toy-container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-center items-center">
@@ -21,7 +58,7 @@ const Register = () => {
             Register Page
           </h1>
 
-          <form>
+          <form onSubmit={handleRegistration}>
             <div className="form-control w-full mb-5">
               <label className="label">
                 <span className="label-text font-bold text-primary">
