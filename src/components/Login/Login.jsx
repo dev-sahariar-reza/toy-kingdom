@@ -35,7 +35,21 @@ const Login = () => {
       });
   };
 
-  const handleLoginWithGoogle = () => {};
+  const handleLoginWithGoogle = () => {
+    setError("");
+
+    logInWithGoogle()
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        Swal.fire("Well Done", "Login Successful!", "success");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
+      });
+  };
 
   return (
     <section className="toy-container">
