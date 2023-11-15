@@ -8,7 +8,7 @@ const Register = () => {
   const [control, setControl] = useState(false);
   const [error, setError] = useState("");
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logInWithGoogle } = useContext(AuthContext);
 
   // registration with email & password
   const handleRegistration = (event) => {
@@ -34,6 +34,25 @@ const Register = () => {
           icon: "success",
         });
         form.reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
+      });
+  };
+
+  // registration with google
+  const handleRegistrationWithGoogle = () => {
+    logInWithGoogle()
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Your registration is successful!",
+          icon: "success",
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -158,7 +177,12 @@ const Register = () => {
             <div className="divider">OR</div>
 
             <div className="grid h-20 card rounded-box place-items-center">
-              <button className="toy-button">Register with Google</button>
+              <button
+                className="toy-button"
+                onClick={handleRegistrationWithGoogle}
+              >
+                Register with Google
+              </button>
             </div>
           </div>
         </div>
