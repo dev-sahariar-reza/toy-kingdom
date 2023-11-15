@@ -2,9 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo/logo.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const navLink = (
     <>
@@ -53,6 +54,20 @@ const Header = () => {
       </li>
     </>
   );
+
+  // handle logout
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          title: "Thank You For Visiting Our Shop!",
+          text: "Logout Successful!",
+          icon: "success",
+        });
+      })
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-start">
@@ -111,7 +126,9 @@ const Header = () => {
               </div>
             </div>
 
-            <button className="toy-button ml-5">Logout</button>
+            <button className="toy-button ml-5" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
           <Link to="/login">
