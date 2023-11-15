@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
 import loginImage from "../../assets/images/login&register/login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const [control, setControl] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const { logInWithEmail, logInWithGoogle } = useContext(AuthContext);
 
@@ -28,6 +31,7 @@ const Login = () => {
         Swal.fire("Well Done", "Login Successful!", "success");
         // clear form data
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -43,6 +47,7 @@ const Login = () => {
         const createdUser = result.user;
         console.log(createdUser);
         Swal.fire("Well Done", "Login Successful!", "success");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
