@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 
-const ToyRow = ({ toy }) => {
+const ToyRow = ({ toy, deleteToy }) => {
   const {
     _id,
     seller,
-    seller_email,
     toy_name,
     sub_category,
     price,
-    rating,
     available_quantity,
     image,
-    description,
   } = toy;
+
   return (
     <tr>
       <th>
-        <button className="btn btn-circle btn-outline">
+        <button
+          className="btn btn-circle btn-outline"
+          onClick={() => deleteToy(_id)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

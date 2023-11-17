@@ -43,6 +43,7 @@ const AddAToy = () => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire("Successful!", "You Added A New Toy!", "success");
+          form.reset();
         }
       });
   };
