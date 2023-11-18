@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const AddAToy = () => {
+  const { user } = useContext(AuthContext);
   const handleAddAToy = (event) => {
     // prevent form loading
     event.preventDefault();
@@ -77,6 +80,7 @@ const AddAToy = () => {
             <input
               type="text"
               className="input input-bordered w-full"
+              defaultValue={user?.displayName}
               name="sellerName"
             />
           </div>
@@ -89,6 +93,7 @@ const AddAToy = () => {
             <input
               type="email"
               className="input input-bordered w-full"
+              defaultValue={user?.email}
               name="sellerEmail"
             />
           </div>
