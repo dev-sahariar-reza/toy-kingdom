@@ -9,7 +9,7 @@ const MyToyRow = ({ toy, deleteToy }) => {
       <td>{price}</td>
       <td>{available_quantity}</td>
       <td>
-        <Link>
+        <Link to={`/updateToy/${_id}`}>
           <button className="btn btn-primary">Update</button>
         </Link>
       </td>
