@@ -11,7 +11,7 @@ const AddAToy = () => {
     // get data
     const form = event.target;
     const seller = form.sellerName.value;
-    const seller_email = form.sellerEmail.value;
+    const email = form.sellerEmail.value;
     const toy_name = form.toyName.value;
     const sub_category = form.subCategory.value;
     const price = form.price.value;
@@ -22,7 +22,7 @@ const AddAToy = () => {
 
     const newToy = {
       seller,
-      seller_email,
+      email,
       toy_name,
       sub_category,
       price,

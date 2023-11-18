@@ -7,7 +7,7 @@ const ToyDetails = () => {
   const {
     _id,
     seller,
-    seller_email,
+    email,
     toy_name,
     sub_category,
     price,
@@ -46,7 +46,7 @@ const ToyDetails = () => {
             <span className="font-bold">Seller:</span> {seller}
           </p>
           <p className="mb-4 text-lg">
-            <span className="font-bold">Seller Email:</span> {seller_email}
+            <span className="font-bold">Seller Email:</span> {email}
           </p>
           <div className="mb-6 text-lg flex items-center">
             <span className="font-bold mr-5">Ratings:</span>
