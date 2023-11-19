@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useContext } from "react";
 
-const ToyRow = ({ toy, deleteToy }) => {
+const ToyRow = ({ toy }) => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const {
     _id,
     seller,
@@ -10,6 +16,29 @@ const ToyRow = ({ toy, deleteToy }) => {
     available_quantity,
     image,
   } = toy;
+
+  const handleViewDetails = () => {
+    if (!user) {
+      Swal.fire({
+        title: "Alert!!!",
+        text: "You have to login to see the toy details!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, proceed!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Successful!",
+            text: "Navigate to Login Page.",
+            icon: "success",
+          });
+          navigate(`/toyDetails/${_id}`);
+        }
+      });
+    }
+  };
 
   return (
     <tr>
@@ -26,9 +55,9 @@ const ToyRow = ({ toy, deleteToy }) => {
         {available_quantity} pc
       </td>
       <td>
-        <Link to={`/toyDetails/${_id}`}>
-          <button className="btn btn-primary">View details</button>
-        </Link>
+        <button className="btn btn-primary" onClick={handleViewDetails}>
+          View details
+        </button>
       </td>
     </tr>
   );
