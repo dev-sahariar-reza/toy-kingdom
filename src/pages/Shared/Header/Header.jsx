@@ -68,6 +68,7 @@ const Header = () => {
   const handleLogout = () => {
     logOut()
       .then(() => {
+        localStorage.removeItem("car-access-token");
         Swal.fire({
           title: "Thank You For Visiting Our Shop!",
           text: "Logout Successful!",
