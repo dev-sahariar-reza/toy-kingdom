@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "../../components/TableRow/ToyRow";
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 const AllToys = () => {
   const toysData = useLoaderData();
