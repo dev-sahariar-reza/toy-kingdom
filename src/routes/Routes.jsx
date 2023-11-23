@@ -10,6 +10,7 @@ import ToyDetails from "../components/ToyDetails/ToyDetails";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateAToy from "../pages/UpdateAToy/UpdateAToy";
+import Blogs from "../pages/Blogs/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
       },
     ],
   },
