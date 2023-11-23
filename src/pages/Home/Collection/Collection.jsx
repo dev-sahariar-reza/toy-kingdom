@@ -3,8 +3,8 @@ import "react-tabs/style/react-tabs.css";
 
 const Collection = () => {
   return (
-    <section className="toy-container">
-      <h1 className="text-center font-extrabold  text-white text-4xl bg-[#7743DB] p-5 rounded-lg mb-8">
+    <section className="toy-container hidden lg:block">
+      <h1 className="text-center font-extrabold  text-white text-4xl bg-[#7743DB] p-5 rounded-lg mb-8 ">
         Toy Collections
       </h1>
 

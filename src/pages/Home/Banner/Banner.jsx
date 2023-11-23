@@ -2,7 +2,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const Banner = () => {
   return (
     <section className="toy-container">
-      <div className="h-[420px] bg-cover bg-no-repeat bg-[url(https://i.ibb.co/Qf2VSKX/rsz-1banner-min.jpg)] rounded-lg py-16 px-14">
+      <div className="h-[420px] bg-cover bg-no-repeat bg-[url(https://i.ibb.co/Qf2VSKX/rsz-1banner-min.jpg)] rounded-lg py-16 px-14 hidden lg:block">
         <h1 className="text-3xl font-bold mb-3">Where Imagination Reigns:</h1>
         <h1 className="text-3xl font-bold mb-5">
           Your Ultimate Playground at Toy Kingdom!
