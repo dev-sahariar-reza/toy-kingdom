@@ -9,7 +9,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const navigate = useNavigate();
 
-  const url = `http://localhost:5000/toy?email=${user.email}`;
+  const url = `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toy?email=${user.email}`;
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -39,9 +39,12 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

@@ -27,24 +27,6 @@ const Login = () => {
     logInWithEmail(email, password)
       .then((result) => {
         const user = result.user;
-        const loggedUser = {
-          email: user.email,
-        };
-
-        // jwt authentication
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            // Warning: local storage is not the best practice to store access token
-            localStorage.setItem("car-access-token", data.token);
-          });
-
         Swal.fire("Well Done", "Login Successful!", "success");
         // clear form data
         form.reset();
@@ -62,24 +44,6 @@ const Login = () => {
     logInWithGoogle()
       .then((result) => {
         const user = result.user;
-        const loggedUser = {
-          email: user.email,
-        };
-
-        // jwt authentication
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            // Warning: local storage is not the best practice to store access token
-            localStorage.setItem("car-access-token", data.token);
-          });
-
         Swal.fire("Well Done", "Login Successful!", "success");
         navigate(from, { replace: true });
       })

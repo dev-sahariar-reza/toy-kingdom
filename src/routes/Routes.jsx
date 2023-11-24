@@ -25,7 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/toys"),
+        loader: () =>
+          fetch(
+            "https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys"
+          ),
       },
       {
         path: "myToys",
@@ -51,13 +54,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "updateToy/:id",
         element: <UpdateAToy />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "login",

@@ -34,13 +34,16 @@ const AddAToy = () => {
     console.log(newToy);
 
     // fetch all toys
-    fetch("http://localhost:5000/toys", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newToy),
-    })
+    fetch(
+      "https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newToy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

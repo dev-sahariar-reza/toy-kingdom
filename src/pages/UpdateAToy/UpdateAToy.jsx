@@ -46,13 +46,16 @@ const UpdateAToy = () => {
     };
 
     // fetch data
-    fetch(`http://localhost:5000/toys/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedToy),
-    })
+    fetch(
+      `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedToy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
