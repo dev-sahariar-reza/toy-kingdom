@@ -25,10 +25,7 @@ export const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys />,
-        loader: () =>
-          fetch(
-            "https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys"
-          ),
+        loader: () => fetch("https://tk-server-2.onrender.com/toys"),
       },
       {
         path: "myToys",
@@ -54,17 +51,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${params.id}`
-          ),
+          fetch(`https://tk-server-2.onrender.com/toys/${params.id}`),
       },
       {
         path: "updateToy/:id",
         element: <UpdateAToy />,
         loader: ({ params }) =>
-          fetch(
-            `https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys/${params.id}`
-          ),
+          fetch(`https://tk-server-2.onrender.com/toys/${params.id}`),
       },
       {
         path: "login",

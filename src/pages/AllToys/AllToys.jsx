@@ -1,14 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import ToyRow from "../../components/TableRow/ToyRow";
-import { useState } from "react";
 
 const AllToys = () => {
   const toysData = useLoaderData();
-  const [toys, setToys] = useState(toysData);
 
   return (
     <section className="toy-container">
-      <h1 className="text-2xl font-bold mb-6">Total Toys: {toys.length}</h1>
+      <h1 className="text-2xl font-bold mb-6">Total Toys: {toysData.length}</h1>
 
       <table className="table">
         <thead>
@@ -23,7 +21,7 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody>
-          {toys.map((toy) => (
+          {toysData.map((toy) => (
             <ToyRow key={toy._id} toy={toy} />
           ))}
         </tbody>

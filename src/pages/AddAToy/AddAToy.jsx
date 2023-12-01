@@ -34,16 +34,13 @@ const AddAToy = () => {
     console.log(newToy);
 
     // fetch all toys
-    fetch(
-      "https://toy-kingdom-server-r4ln1ayxu-s-m-sahariar-rezas-projects.vercel.app/toys",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newToy),
-      }
-    )
+    fetch("https://tk-server-2.onrender.com/toys", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newToy),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
